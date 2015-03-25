@@ -1,22 +1,17 @@
 'use strict';
 
-//nesting session
-//
-var Hapi   = require( 'hapi' );
-var server = new Hapi.Server();
+exports.register = function ( server, options, next ) {
 
-server.connection( {
-	'port' : 8001
-} );
+	server.route( {
+		'method'  : 'GET',
+		'path'    : '/v1/session',
+		'handler' : function ( request, reply ) {
+			reply( 'session route' );
+		}
+	} );
+	return next();
+};
 
-server.route( [ {
-	'method'  : 'GET',
-	'path'    : '/session',
-	'handler' : function ( request, reply ) {
-		reply( 'session' );
-	}
-} ] );
-
-server.start( function onStart() {
-	console.log( 'started ' + server.info.uri );
-} );
+exports.register.attributes = {
+	'pkg': require( './package.json' )
+};
