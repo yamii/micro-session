@@ -13,7 +13,7 @@ server.route( [ {
 	'method'  : 'GET',
 	'path'    : '/session',
 	'handler' : function ( request, reply ) {
-		reply( 'session' );
+		reply( 'pom branch' );
 	}
 } ] );
 
