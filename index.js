@@ -1,7 +1,7 @@
 'use strict';
 
-//session just to test
-
+//nesting session
+//
 var Hapi   = require( 'hapi' );
 var server = new Hapi.Server();
 
